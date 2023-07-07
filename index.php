@@ -11,6 +11,7 @@
 <body>
     <div id="app">
         <h1 class="text-center my-5">ToDoList</h1>
+        <!-- INSERT NUOVA TASK -->
         <div class="container">
             <div class="row mb-5">
                 <div class="col-1 offset-3">

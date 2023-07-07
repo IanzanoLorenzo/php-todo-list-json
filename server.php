@@ -1,6 +1,8 @@
 <?php
     $arrayString = file_get_contents(__DIR__.'/data/data.json');
     $arrayTodo = json_decode($arrayString, true);
+
+    //FUNZIONE CHE INSERISCE UNA NUOVA TASK
     if(isset($_POST['Item'])){
         $item = $_POST['Item'];
         $obj = [
@@ -13,6 +15,7 @@
         file_put_contents('./data/data.json', $returnArrayString);
     };
 
+    //FUNZIONE CHE CAMBIA LO STATO DELLA TASK
     if(isset($_POST['IndexChange'])){
         $index = $_POST['IndexChange'];
         $arrayTodo[$index]['done'] = !$arrayTodo[$index]['done'];
@@ -21,6 +24,7 @@
         file_put_contents('./data/data.json', $returnArrayString);
     };
 
+    //FUNZIONE CHE CANCELLA UNA TASK
     if(isset($_POST['IndexDelete'])){
         $index = $_POST['IndexDelete'];
         array_splice($arrayTodo, $index, 1);

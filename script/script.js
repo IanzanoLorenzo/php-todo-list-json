@@ -15,17 +15,19 @@ createApp({
         })
     },
     methods: {
+        //FUNZIONE CHE CAMBIA LO STATO DELLA TASK
         doneUndoneTask(index){
             const data = {
                 IndexChange : index
             };
-
+            
             axios.post(this.apiUrl, data,{
                 headers: {'Content-Type': 'multipart/form-data'}
             }).then((resp) => {
                 this.array = resp.data;
             })
         },
+        //FUNZIONE CHE INSERISCE UNA NUOVA TASK
         newItem(){
             console.log(this.array)
             if(this.newTask.trim() !== ''){
@@ -45,6 +47,7 @@ createApp({
                 })
             }
         },
+        //FUNZIONE CHE CANCELLA UNA TASK
         deleteTask(index){
             const data = {
                 IndexDelete : index
