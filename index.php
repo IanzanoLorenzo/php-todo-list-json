@@ -11,17 +11,29 @@
 <body>
     <div id="app">
         <h1 class="text-center my-5">ToDoList</h1>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-1 offset-3">
+                    <label for="new-task" class="form-label">New Task</label>
+                </div>
+                <div class="col-4">
+                    <input @keyup.enter="newItem()" type="text" class="form-control" id="new-task" v-model="newTask">
+                </div>
+                <div class="col-2">
+                    <div class="btn btn-outline-primary" @click="newItem()">Aggiungi</div>
+                </div>
+            </div>
+        </div>
         <div class="containers">
             <div class="row">
                 <div class="col-4 offset-4">
                     <ul class="list-group">
-                        <!-- LISTA -->
-                        <!-- -->
-                        <li v-for="(item, index) in array" :key="index" class="list-group-item d-flex align-items-center" :class="!item.done ? '' : 'text-decoration-line-through'">
-                            <span class="col">{{ item.text }}</span>
+                        <!-- LISTA -->                        
+                        <li v-if="array.length > 0" v-for="(item, index) in array" :key="index" class="list-group-item d-flex align-items-center" :class="item.done === 'false' ? '' : 'text-decoration-line-through'">
+                            <span class="col text-capitalize">{{ item.text }}</span>
                             <div class="col-auto functions-buttons d-flex">
-                                <div class="btn me-3" :class="!item.done ? 'btn-outline-success' : 'btn-outline-danger'" @click="doneUndoneTask(index)"><i :class="!item.done ? 'fa-solid fa-check' : 'fa-solid fa-xmark'"></i></div>
-                                <div class="btn btn-outline-warning"><i class="fa-solid fa-trash"></i></div>
+                                <div class="btn me-3" :class="item.done === 'false' ? 'btn-outline-success' : 'btn-outline-danger'" @click="doneUndoneTask(index)"><i :class="item.done === 'false' ? 'fa-solid fa-check' : 'fa-solid fa-xmark'"></i></div>
+                                <!-- <div class="btn btn-outline-warning" @click="deleteTask(index)"><i class="fa-solid fa-trash"></i></div> -->
                             </div>
                         </li>
                     </ul>
