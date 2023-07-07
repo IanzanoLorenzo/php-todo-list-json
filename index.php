@@ -33,7 +33,7 @@
                             <span class="col text-capitalize">{{ item.text }}</span>
                             <div class="col-auto functions-buttons d-flex">
                                 <div class="btn me-3" :class="item.done === 'false' ? 'btn-outline-success' : 'btn-outline-danger'" @click="doneUndoneTask(index)"><i :class="item.done === 'false' ? 'fa-solid fa-check' : 'fa-solid fa-xmark'"></i></div>
-                                <!-- <div class="btn btn-outline-warning" @click="deleteTask(index)"><i class="fa-solid fa-trash"></i></div> -->
+                                <div class="btn btn-outline-warning" @click="deleteTask(index)"><i class="fa-solid fa-trash"></i></div>
                             </div>
                         </li>
                     </ul>

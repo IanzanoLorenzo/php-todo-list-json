@@ -43,9 +43,8 @@ createApp({
                 this.array.splice(index, 1)
                 this.axiosPost(this.array)
             } else {
-                this.array = null;
+                this.array = '';
                 this.axiosPost(this.array)
-                this.array = []
             }
         },
         axiosPost(thearray){
